@@ -49,7 +49,7 @@ const LoginModal = () => {
       }
 
       if (callback?.error) {
-        toast.error(callback.error);
+        toast.error("Something went wrong!");
       }
     });
   };

@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/Modals/RegisterModal";
 import LoginModal from "./components/Modals/LoginModal";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -21,11 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ClientOnly>
-          <RegisterModal />
-          <LoginModal />
-          <Navbar />
-        </ClientOnly>
+        <ToasterProvider />
+        <RegisterModal />
+        <LoginModal />
+        <Navbar />
         {children}
       </body>
     </html>
