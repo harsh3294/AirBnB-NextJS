@@ -28,26 +28,26 @@ export const authOptions: AuthOptions = {
           label: "password",
           type: "password",
         },
-        async authorize(credentials) {
-          if (!credentials?.email || !credentials?.password)
-            throw new Error("Invalid Credentials");
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password)
+          throw new Error("Invalid Credentials");
 
-          const user = await prisma.user.findUnique({
-            where: {
-              email: credentials.email,
-            },
-          });
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
+          },
+        });
 
-          if (!user || !user?.hashedPassword)
-            throw new Error("Invalid Credentials");
-          const isCorrecctPassword = await bcrypt.compare(
-            credentials.password,
-            user.hashedPassword
-          );
-          if (!isCorrecctPassword) throw new Error("Invalid Credentials");
+        if (!user || !user?.hashedPassword)
+          throw new Error("Invalid Credentials");
+        const isCorrecctPassword = await bcrypt.compare(
+          credentials.password,
+          user.hashedPassword
+        );
+        if (!isCorrecctPassword) throw new Error("Invalid Credentials");
 
-          return user;
-        },
+        return user;
       },
     }),
   ],
