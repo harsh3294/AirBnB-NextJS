@@ -41,7 +41,6 @@ const LoginModal = () => {
       redirect: false,
     }).then((callback) => {
       setIsLoading(false);
-
       if (callback?.ok) {
         toast.success("Logged in");
         router.refresh();
