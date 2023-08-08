@@ -6,16 +6,15 @@ import { useState, useCallback } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { User } from "@prisma/client";
 import { useRouter } from "next/navigation";
+import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<NavbarProps> = ({ currentUser }) => {
   const router = useRouter();
-
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
