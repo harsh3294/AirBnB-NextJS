@@ -35,7 +35,7 @@ const Counter: React.FC<CounterProps> = ({
         <div className="font-light text-gray-600">{subtitle}</div>
       </div>
       <div className="flex flex-row items-center gap-4">
-        <div
+        <button
           onClick={onReduce}
           className="
             w-10
@@ -53,7 +53,7 @@ const Counter: React.FC<CounterProps> = ({
           "
         >
           <AiOutlineMinus />
-        </div>
+        </button>
         <div
           className="
             font-light 
@@ -63,7 +63,7 @@ const Counter: React.FC<CounterProps> = ({
         >
           {value}
         </div>
-        <div
+        <button
           onClick={onAdd}
           className="
             w-10
@@ -81,7 +81,7 @@ const Counter: React.FC<CounterProps> = ({
           "
         >
           <AiOutlinePlus />
-        </div>
+        </button>
       </div>
     </div>
   );
