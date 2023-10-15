@@ -3,7 +3,7 @@ import getListings, { IListingsParams } from "./actions/getListings";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
-import ListingCard from "./components/listings/ListingCard";
+import ListingCard from "./components/listings3213/ListingCard";
 
 interface HomeProps {
   searchParams: IListingsParams;
